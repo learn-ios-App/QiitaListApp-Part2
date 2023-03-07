@@ -12,6 +12,7 @@
 		8BF0010C29B5D47C007CB57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0010B29B5D47C007CB57B /* Assets.xcassets */; };
 		8BF0010F29B5D47C007CB57B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0010E29B5D47C007CB57B /* Preview Assets.xcassets */; };
 		8BF0011629B5D525007CB57B /* QiitaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0011529B5D525007CB57B /* QiitaData.swift */; };
+		8BF0013829B637AB007CB57B /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0013729B637AB007CB57B /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8BF0010B29B5D47C007CB57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF0010E29B5D47C007CB57B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8BF0011529B5D525007CB57B /* QiitaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaData.swift; sourceTree = "<group>"; };
+		8BF0013729B637AB007CB57B /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				8BF0010729B5D47C007CB57B /* QiitaListAppApp.swift */,
 				8BF0010929B5D47C007CB57B /* ContentView.swift */,
+				8BF0013729B637AB007CB57B /* SafariView.swift */,
 				8BF0011529B5D525007CB57B /* QiitaData.swift */,
 				8BF0010B29B5D47C007CB57B /* Assets.xcassets */,
 				8BF0010D29B5D47C007CB57B /* Preview Content */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF0013829B637AB007CB57B /* SafariView.swift in Sources */,
 				8BF0010A29B5D47C007CB57B /* ContentView.swift in Sources */,
 				8BF0011629B5D525007CB57B /* QiitaData.swift in Sources */,
 				8BF0010829B5D47C007CB57B /* QiitaListAppApp.swift in Sources */,

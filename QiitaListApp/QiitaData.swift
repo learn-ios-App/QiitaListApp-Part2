@@ -11,12 +11,17 @@ import Foundation
 struct Article: Identifiable {
     let id = UUID()
     let title: String
-    let createdAt: String
+    let url: URL
     let user: User
+}
+
+struct User: Decodable {
+    let name: String
+    let profileImageURL: URL
     
-    struct User {
-        let name: String
-        let image: URL
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profileImageURL = "profile_image_url"
     }
 }
 
@@ -24,25 +29,17 @@ class QiitaData: ObservableObject {
     
     struct Item: Decodable {
         let title: String?
-        let createdAt: String?
+        let url: URL?
         let user: User?
         
         enum CodingKeys: String, CodingKey {
             case title
-            case createdAt = "created_at"
+            case url
             case user
-        }
-        struct User: Decodable {
-            let name: String?
-            let profileImageURL: URL?
-            
-            enum CodingKeys: String, CodingKey {
-                case name
-                case profileImageURL = "profile_image_url"
-            }
         }
     }
     @Published var articleList: [Article] = []
+    var qiitaLink: URL?
     
     func getQiitaArticle()  {
         Task {
@@ -52,22 +49,21 @@ class QiitaData: ObservableObject {
     
     @MainActor
     private func getAriticle() async {
-        guard let url = URL(string: "https://qiita.com/api/v2/items?page=1&per_page=10") else {
+        guard let url = URL(string: "https://qiita.com/api/v2/items?page=1&per_page=20") else {
             return
         }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let json = try JSONDecoder().decode([Item].self, from: data)
-//            let text = String(data: data, encoding: .utf8)!
-//            print(text)
             
             for item in json {
                 if let title = item.title,
-                   let createdAt = item.createdAt,
+                   let url = item.url,
                    let user = item.user {
                     //構造体作成
-                    let article = Article(title: title, createdAt: createdAt, user: user)
+                    let article = Article(title: title, url: url, user: user)
+                    articleList.append(article)
                 }
             }
         } catch {
